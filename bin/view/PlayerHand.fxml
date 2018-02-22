@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.PlayerHandController" stylesheets="@playerHand.css">
+	<fx:include source = "CardCollection.fxml" fx:id="cardCollection"/>
+	<StackPane style="-fx-background-color: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.8));" StackPane.alignment="bottom_right" maxHeight="30" maxWidth="80">
+		<padding>
+			<Insets bottom="5.0" left="5.0" right ="5.0" top="5.0"/>
+		</padding>
+		<Label  fx:id="oddsLB" style="-fx-text-fill: white" StackPane.alignment="center_right"/>
+	</StackPane>
+	<Button fx:id="deleteBT"  text="X" visible="false" StackPane.alignment="top_right"/>
+</StackPane>
+
