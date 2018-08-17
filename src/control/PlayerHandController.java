@@ -24,6 +24,9 @@ public class PlayerHandController implements Initializable, Observer{
 	/** popisek šance na výhru */
 	private Label oddsLB;
 	@FXML
+	/** èervené pozadí šance na výhru */
+	private StackPane oddsPane;
+	@FXML
 	/** odkaz na zabalenou kolekci karet */
 	private CardCollectionController cardCollectionController;
 	@FXML
@@ -43,6 +46,7 @@ public class PlayerHandController implements Initializable, Observer{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		oddsPane.setVisible(false);
 		root.setOnMouseEntered(e -> deleteBT.setVisible(true));
 		root.setOnMouseExited( e -> {
 			deleteBT.setVisible(false);
@@ -59,11 +63,12 @@ public class PlayerHandController implements Initializable, Observer{
 		if(o instanceof Calculator){
 			Double d = ((Calculator)o).getOdds(getDeck());
 			if(d == null){
-				oddsLB.setText(null);
+				oddsPane.setVisible(false);
 			}
 			else{
 				int odds = (int) (d.doubleValue() * 1000);
 				oddsLB.setText(odds/10 +","+odds%10+ " %");
+				oddsPane.setVisible(true);
 			}
 		}
 		else if(o instanceof CardCollectionController){
